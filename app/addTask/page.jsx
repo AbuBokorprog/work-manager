@@ -1,9 +1,11 @@
+import AddTaskForm from "@/components/addTaskForm";
 import React from "react";
 
 const AddTask = () => {
   return (
-    <div>
-      <h2>Add Task page</h2>
+    <div className="my-10">
+      <h2 className="text-3xl font-semibold text-center">Add Task page</h2>
+      <AddTaskForm />
     </div>
   );
 };

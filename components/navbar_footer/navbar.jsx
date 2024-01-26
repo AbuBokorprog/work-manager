@@ -11,10 +11,10 @@ const Navbar = () => {
         <Link href={"/showTask"}>Show task</Link>
       </div>
       <div className="flex justify-between gap-5 items-center">
-        <button className="px-4 py-2 bg-red-400 rounded-md">
+        <button className="px-4 py-2 hover:bg-gray-400 rounded-md">
           <Link href={"/login"}>Login</Link>
         </button>
-        <button className="px-4 py-2 bg-red-400 rounded-md">
+        <button className="px-4 py-2 hover:bg-gray-400 rounded-md">
           <Link href={"/signIn"}>Sign In</Link>
         </button>
       </div>
