@@ -3,9 +3,12 @@ const mongoose = require("mongoose");
 const taskSchema = new mongoose.Schema({
   title: {
     type: String,
+    unique: true,
+    required: true,
   },
   content: {
     type: String,
+    required: true,
   },
   userId: {
     type: String,
@@ -18,6 +21,7 @@ const taskSchema = new mongoose.Schema({
   },
   addedDate: {
     type: Date,
+    default: Date.now(),
   },
 });
 
