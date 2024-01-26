@@ -3,7 +3,6 @@ import Task from "@/models/task";
 import { NextResponse } from "next/server";
 
 db();
-// export async function POST() {}
 export async function GET(req, { params }) {
   const { _id } = params;
   try {

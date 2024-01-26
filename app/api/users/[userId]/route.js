@@ -4,10 +4,10 @@ import Users from "@/models/users";
 db();
 
 export async function DELETE(_, { params }) {
-  const { email } = params;
+  const { userId } = params;
 
   try {
-    const deleteUser = await Users.findOneAndDelete({ email });
+    const deleteUser = await Users.findOneAndDelete({ _id: userId });
     if (!deleteUser) {
       return NextResponse.json({
         message: "User not found",
@@ -28,7 +28,7 @@ export async function DELETE(_, { params }) {
 }
 
 export async function PUT(request, { params }) {
-  const { email } = params;
+  const { userId } = params;
 
   try {
     // Extract updated data from request body
@@ -36,7 +36,7 @@ export async function PUT(request, { params }) {
 
     // Find and update the user
     const updatedUser = await Users.findOneAndUpdate(
-      { email: email },
+      { _id: userId },
       { name: newName, password: newPassword },
       { new: true, runValidators: true }
     );
