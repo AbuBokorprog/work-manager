@@ -4,7 +4,18 @@ import { NextResponse } from "next/server";
 
 db();
 // export async function POST() {}
-// export async function GET() {}
+export async function GET(req, { params }) {
+  const { _id } = params;
+  try {
+    const task = await Task.findById({ _id });
+    return NextResponse.json(task);
+  } catch (err) {
+    return NextResponse({
+      message: "Specific task get failed",
+      status: 404,
+    });
+  }
+}
 
 export async function DELETE(_, { params }) {
   const { _id } = params;
