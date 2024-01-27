@@ -11,7 +11,28 @@ const AddTaskForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const title = data.title;
+    const content = data.content;
+    const status = data.status;
+    const task = {
+      title: title,
+      content: content,
+      status: status,
+      userId: "65b0b9eb46bed404d23091d5",
+    };
+    try {
+      fetch("http://localhost:3000/api/task", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(task),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    } catch (error) {
+      console.log({ error: error.message });
+    }
     reset();
   };
   return (
