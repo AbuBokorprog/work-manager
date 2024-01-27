@@ -15,7 +15,7 @@ const Navbar = () => {
           <Link href={"/login"}>Login</Link>
         </button>
         <button className="px-4 py-2 hover:bg-gray-400 rounded-md">
-          <Link href={"/signIn"}>Sign In</Link>
+          <Link href={"/sign_up"}>Sign In</Link>
         </button>
       </div>
     </nav>

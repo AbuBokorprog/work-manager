@@ -4,20 +4,24 @@ import Image from "next/image";
 import addTaskImage from "@/public/assets/addTaskImage.png";
 const AddTask = () => {
   return (
-    <div className="my-10">
+    <div className="my-10 lg:flex items-center justify-betweens gap-10">
       <Image
         src={addTaskImage}
         alt="Add Task Image"
-        width={600}
+        width={500}
         height={600}
         // sizes="100vw"
         placeholder="blur"
         quality={70}
-        className="mx-auto w-auto h-auto"
+        className="mx-auto w-auto h-auto rounded-lg"
         priority
       />
-      <h2 className="text-3xl my-2 font-semibold text-center">Add Task page</h2>
-      <AddTaskForm />
+      <div className="w-full">
+        <h2 className="text-3xl my-2 font-semibold text-center">
+          Add Task page
+        </h2>
+        <AddTaskForm />
+      </div>
     </div>
   );
 };

@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  photoURL: {
+    type: String,
+  },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

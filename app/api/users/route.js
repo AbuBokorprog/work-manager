@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { db } from "@/db-connect/db";
 import Users from "@/models/users";
-db();
+import bcrypt from "bcrypt";
 
+db();
 export async function POST(request, _) {
-  const { name, email, password } = await request.json();
-  const user = new Users({ name, email, password });
+  const { name, email, password, photoURL } = await request.json();
+  const user = new Users({ name, email, password, photoURL });
   try {
+    user.password = bcrypt.hashSync(password, 10);
     const result = await user.save();
     const response = NextResponse.json(user);
     return response;
