@@ -20,6 +20,7 @@ const AddTaskForm = () => {
       status: status,
       userId: "65b0b9eb46bed404d23091d5",
     };
+
     try {
       fetch("http://localhost:3000/api/task", {
         method: "POST",
@@ -29,9 +30,10 @@ const AddTaskForm = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          alert(data.message);
         });
     } catch (error) {
-      console.log({ error: error.message });
+      alert(error.message);
     }
     reset();
   };

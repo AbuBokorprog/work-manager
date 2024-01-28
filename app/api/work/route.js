@@ -8,7 +8,11 @@ export async function POST(req, res) {
   const work = new Work({ title, description });
   try {
     const result = await work.save();
-    const response = NextResponse.json(work);
+    const response = NextResponse.json({
+      message: "Work saved successfully",
+      status: false,
+      work: work,
+    });
     return response;
   } catch (error) {
     return NextResponse.json({

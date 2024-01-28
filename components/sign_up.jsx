@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 
 const Sign_up = () => {
   const [match, setMatch] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const {
     register,
     handleSubmit,
@@ -38,22 +36,18 @@ const Sign_up = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            setError("");
-            setSuccess("Sign up successfully");
+            alert(data.message);
           });
         reset();
       }
     } catch (error) {
-      setError(error);
-      setSuccess("");
+      alert(error.message);
     }
   };
   return (
     <div>
       <div className="text-center">
         <h2 className="text-4xl font-semibold text-center">Sign Up</h2>
-        <p className="text-green-400">{success}</p>
-        <p className="text-red-400">{error}</p>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="my-2">

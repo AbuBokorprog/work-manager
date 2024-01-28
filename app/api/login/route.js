@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken";
 import { verifyToken } from "@/utils/auth";
 
 db();
-
 export async function POST(req, res) {
   const { email, password } = await req.json();
   try {
@@ -43,7 +42,7 @@ export async function POST(req, res) {
 
     const response = NextResponse.json({
       message: "Login success",
-      //   token: token, // Include the token in the response if needed
+      user: user,
     });
     response.cookies.set("authToken", token, {
       expiresIn: "1d",

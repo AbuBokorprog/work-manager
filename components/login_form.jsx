@@ -10,8 +10,6 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-
     const email = data.email;
     const password = data.password;
 
@@ -19,22 +17,20 @@ const LoginForm = () => {
       email: email,
       password: password,
     };
-    console.log(user);
-    // try {
-    //   fetch("http://localhost:3000/api/users", {
-    //     method: "POST",
-    //     headers: { "content-type": "application/json" },
-    //     body: JSON.stringify(user),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       alert("Success");
-    //       // console.log(data);
-    //     });
-    //   reset();
-    // } catch (error) {
-    //   console.log({ error: error.message });
-    // }
+    try {
+      fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(user),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          alert(data.message);
+        });
+      reset();
+    } catch (error) {
+      alert(error);
+    }
   };
   return (
     <div className="">

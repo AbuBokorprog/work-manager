@@ -8,7 +8,11 @@ export async function POST(req, res) {
   const task = new Task({ title, content, userId });
   try {
     const createdTask = await task.save();
-    const response = NextResponse.json(createdTask);
+    const response = NextResponse.json({
+      message: "Task saved successfully",
+      status: true,
+      createdTask: createdTask,
+    });
     return response;
   } catch (error) {
     return NextResponse.json({
