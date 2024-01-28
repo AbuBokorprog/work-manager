@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 import Users from "@/models/users";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-import { verifyToken } from "@/utils/auth";
 
 db();
 export async function POST(req, res) {
@@ -37,9 +36,6 @@ export async function POST(req, res) {
       },
       process.env.JWT_KEY
     );
-
-    verifyToken(token);
-
     const response = NextResponse.json({
       message: "Login success",
       user: user,

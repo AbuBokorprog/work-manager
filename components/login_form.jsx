@@ -1,8 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
 const LoginForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -26,6 +28,9 @@ const LoginForm = () => {
         .then((res) => res.json())
         .then((data) => {
           alert(data.message);
+          if (data.message === "Login success") {
+            router.push("/");
+          }
         });
       reset();
     } catch (error) {
