@@ -17,6 +17,21 @@ const ShowTask = () => {
       });
   }, [id]);
 
+  const deleteTask = (id) => {
+    fetch(`http://localhost:3000/api/task/${id}/`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === "Task deleted") {
+          const filterTask = task.filter(
+            (task) => task._id !== data.deleteTask._id
+          );
+          setTask(filterTask);
+        }
+      });
+  };
+
   return (
     <div>
       {loading ? (
@@ -38,7 +53,7 @@ const ShowTask = () => {
                   <p className="my-2 h-20">{task?.content}</p>
                   <div className="flex justify-between items-center">
                     <p>{task?.status}</p>
-                    <button>X</button>
+                    <button onClick={() => deleteTask(task?._id)}>X</button>
                   </div>
                 </div>
               ))}
