@@ -10,7 +10,11 @@ export async function POST(request, _) {
   try {
     user.password = bcrypt.hashSync(password, 10);
     const result = await user.save();
-    const response = NextResponse.json(user);
+    const response = NextResponse.json({
+      message: "Sign up successfully",
+      status: true,
+      user: result,
+    });
     return response;
   } catch (error) {
     return NextResponse.json({

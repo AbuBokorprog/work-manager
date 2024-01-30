@@ -13,7 +13,7 @@ const Navbar = () => {
       });
 
       if (response.ok) {
-        setUser(null);
+        setUser([]);
       } else {
         console.error("Logout failed:", response.statusText);
       }

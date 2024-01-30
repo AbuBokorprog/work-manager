@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 const AddTaskForm = () => {
   const user = useContext(authContext);
 
-  console.log(user?.user?._id);
   const {
     register,
     handleSubmit,
@@ -34,7 +33,7 @@ const AddTaskForm = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           alert(data.message);
         });
     } catch (error) {

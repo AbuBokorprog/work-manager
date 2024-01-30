@@ -1,11 +1,10 @@
+import ShowTask from "@/components/showTask";
 import React from "react";
 
-const showTask = () => {
+export default function page() {
   return (
-    <div>
-      <h2>Show Task page</h2>
+    <div className="my-10">
+      <ShowTask />
     </div>
   );
-};
-
-export default showTask;
+}

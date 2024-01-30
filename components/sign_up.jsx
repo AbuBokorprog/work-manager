@@ -36,6 +36,7 @@ const Sign_up = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data);
             alert(data.message);
           });
         reset();

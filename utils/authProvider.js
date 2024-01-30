@@ -5,6 +5,7 @@ export const authContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadUser() {
@@ -15,9 +16,11 @@ const AuthProvider = ({ children }) => {
           })
           .then((data) => {
             setUser(data);
+            // setLoading(false);
           });
       } catch (error) {
         setUser([]);
+        // setLoading(false);
       }
     }
     loadUser();
