@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
       try {
         fetch("http://localhost:3000/api/current")
           .then((res) => {
-            return res.json();
+            return res?.json();
           })
           .then((data) => {
             setUser(data);
