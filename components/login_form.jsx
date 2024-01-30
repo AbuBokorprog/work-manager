@@ -1,10 +1,12 @@
 "use client";
+import { authContext } from "@/utils/authProvider";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 const LoginForm = () => {
   const router = useRouter();
+  const { user, setUser } = useContext(authContext);
   const {
     register,
     handleSubmit,
@@ -29,6 +31,7 @@ const LoginForm = () => {
         .then((data) => {
           alert(data.message);
           if (data.message === "Login success") {
+            setUser(data.user);
             router.push("/");
           }
         });

@@ -16,10 +16,15 @@ export function middleware(request) {
     if (authToken) {
       return NextResponse.redirect(new URL("/", request.url));
     }
+  } else {
+    if (!authToken) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
   }
   if (
     request.nextUrl.pathname === "/addTask" ||
-    request.nextUrl.pathname === "/showTask"
+    request.nextUrl.pathname === "/showTask" ||
+    request.nextUrl.pathname === "/api/currentuser"
   ) {
     if (!authToken) {
       return NextResponse.redirect(new URL("/login", request.url));
@@ -28,6 +33,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/", "/addTask", "/showTask", "/login", "/sign_up"],
+  matcher: ["/", "/addTask", "/showTask", "/login", "/sign_up", "/api/:path*"],
 };
-// , "/api/:path*"

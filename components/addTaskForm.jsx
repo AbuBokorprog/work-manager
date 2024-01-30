@@ -1,8 +1,12 @@
 "use client";
-import React from "react";
+import { authContext } from "@/utils/authProvider";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 const AddTaskForm = () => {
+  const user = useContext(authContext);
+
+  console.log(user?.user?._id);
   const {
     register,
     handleSubmit,
@@ -14,11 +18,12 @@ const AddTaskForm = () => {
     const title = data.title;
     const content = data.content;
     const status = data.status;
+
     const task = {
       title: title,
       content: content,
       status: status,
-      userId: "65b0b9eb46bed404d23091d5",
+      userId: user?.user?._id,
     };
 
     try {
