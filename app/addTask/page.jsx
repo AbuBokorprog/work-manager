@@ -2,6 +2,12 @@ import AddTaskForm from "@/components/addTaskForm";
 import React from "react";
 import Image from "next/image";
 import addTaskImage from "@/public/assets/addTaskImage.png";
+
+export const metadata = {
+  title: "Add Task",
+  description: "Add Task Page",
+};
+
 const AddTask = () => {
   return (
     <div className="my-10 lg:flex items-center justify-betweens gap-10">
