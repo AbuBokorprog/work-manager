@@ -26,12 +26,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-blue-500  px-4">
+    <section className="bg-blue-500 px-4">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl py-16 lg:text-5xl font-bold mb-8">
+        <h2 className="text-3xl md:text-4xl pt-16 lg:text-5xl font-bold mb-8">
           What Our Users Say
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 py-16 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
