@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Work Manager
 
-## Getting Started
+Work Manager is a task management web application that allows users to add, view, edit, and delete tasks. Users can organize their tasks efficiently and enhance their productivity.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Usage](#usage)
+  - [Adding a Task](#adding-a-task)
+  - [Viewing Tasks](#viewing-tasks)
+  - [Editing a Task](#editing-a-task)
+  - [Deleting a Task](#deleting-a-task)
+- [Authentication](#authentication)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Hero Section: Welcome users with an engaging hero section.
+- Testimonials: Showcase user testimonials to highlight the benefits of Work Manager.
+- Add Task: Allow users to add new tasks with details such as title, description, due date, and priority.
+- Show Task: Display a list of tasks with options to view, edit, and delete each task.
+- Authentication: Users need to log in to add and view tasks.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage
 
-## Learn More
+### Adding a Task
 
-To learn more about Next.js, take a look at the following resources:
+- Log in to your account.
+- Navigate to the "Home Page" page.
+- Click Add Task page.
+- Fill in the task details (title, content and status).
+  Click the "Submit" button.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Viewing Tasks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Log in to your account.
+- Visit the "Show Task" page.
+- Browse through your tasks.
 
-## Deploy on Vercel
+### Editing a Task
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Visit the "Show Task" page.
+- Click on the task you want to edit.
+- Make the necessary changes.
+- Save the changes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Deleting a Task
+
+- Visit the "Show Task" page.
+- Click on the task you want to delete.
+- Click on the three dot icon.
+- Click delete option.
+- Confirm the deletion.
+
+## Authentication
+
+Work Manager requires users to log in to access certain features, such as adding and viewing tasks. Authentication is implemented to ensure the security and privacy of user data.
+
+## Technologies Used
+
+- React.js
+- Next.js
+- Tailwind CSS
+- headless UI
+- React Hook Form
+- MongoDB
+- bcrypt
+- JWT(JsonWebToken)
