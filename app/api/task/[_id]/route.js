@@ -41,11 +41,11 @@ export async function DELETE(_, { params }) {
 }
 export async function PUT(req, { params }) {
   const { _id } = params;
-  const { title, content } = await req.json();
+  const { title, content, status } = await req.json();
   try {
     const updateTask = await Task.findOneAndUpdate(
       { _id: _id },
-      { title: title, content: content },
+      { title: title, content: content, status: status },
       { new: true, runValidators: true }
     );
 

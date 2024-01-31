@@ -3,6 +3,11 @@ import React from "react";
 import signUpImage from "@/public/assets/signup.png";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Sign Up",
+  description: "Sign Up",
+};
+
 const SignIn = () => {
   return (
     <div className="my-10 md:flex gap-5 justify-center items-center">

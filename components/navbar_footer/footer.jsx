@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="">
-      <footer className="bg-blue-500 pt-20">
+      <footer className="bg-blue-500 pb-10 pt-5">
         <div className="lg:flex ps-2 lg:ps-0 gap-16 items-start">
           <div className="lg:ps-4 w-96 my-2">
             <h4 className="text-2xl">Welcome to work manager</h4>
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="bg-gray-800 text-white py-8">
+      <div className="bg-gray-800 text-white pt-4">
         <div className="container mx-auto text-center">
           <p className="text-sm">
             &copy; 2024 Work Manager. All rights reserved. |{" "}

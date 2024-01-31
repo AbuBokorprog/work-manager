@@ -4,8 +4,8 @@ import { NextResponse } from "next/server";
 
 db();
 export async function POST(req, res) {
-  const { title, content, userId } = await req.json();
-  const task = new Task({ title, content, userId });
+  const { title, content, userId, status } = await req.json();
+  const task = new Task({ title, content, userId, status });
   try {
     const createdTask = await task.save();
     const response = NextResponse.json({

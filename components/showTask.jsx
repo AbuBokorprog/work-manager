@@ -1,36 +1,26 @@
 "use client";
 import { authContext } from "@/utils/authProvider";
 import React, { useContext, useEffect, useState } from "react";
+import Dropdown from "./dropdown";
 
 const ShowTask = () => {
   const user = useContext(authContext);
   const id = user?.user?._id;
-  const [task, setTask] = useState();
+  const [tasks, setTask] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/users/${id}/task`)
       .then((res) => res.json())
       .then((data) => {
-        setTask(data);
+        const sortedTasks = data.sort(
+          (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+        );
+
+        setTask(sortedTasks);
         setLoading(false);
       });
   }, [id]);
-
-  const deleteTask = (id) => {
-    fetch(`http://localhost:3000/api/task/${id}/`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message === "Task deleted") {
-          const filterTask = task.filter(
-            (task) => task._id !== data.deleteTask._id
-          );
-          setTask(filterTask);
-        }
-      });
-  };
 
   return (
     <div>
@@ -39,22 +29,33 @@ const ShowTask = () => {
       ) : (
         <div>
           <h2 className=" text-3xl font-semibold mb-10">
-            Your total task:{task?.length}
+            Your total task:{tasks?.length}
           </h2>
-          {task?.length > 0 ? (
+          {tasks?.length > 0 ? (
             <div>
-              {task.map((task) => (
+              {tasks.map((task) => (
                 <div
                   key={task?._id}
-                  className="bg-green-400 my-4 w-full rounded-md p-4"
+                  className={`${
+                    task?.status == "pending" ? "bg-green-400" : "bg-red-400"
+                  } my-4 w-full rounded-md p-4`}
                 >
-                  <h3 className="text-3xl my-2 font-semibold">{task?.title}</h3>
-
-                  <p className="my-2 h-20">{task?.content}</p>
                   <div className="flex justify-between items-center">
-                    <p>{task?.status}</p>
-                    <button onClick={() => deleteTask(task?._id)}>X</button>
+                    <div className="">
+                      <h3 className="text-3xl my-2 font-semibold">
+                        {task?.title}
+                      </h3>
+                    </div>
+                    <Dropdown
+                      title={task?.title}
+                      content={task?.content}
+                      status={task?.status}
+                      id={task?._id}
+                      setTask={setTask}
+                      task={tasks}
+                    />
                   </div>
+                  <p className="my-2 h-20">{task?.content}</p>
                 </div>
               ))}
             </div>
